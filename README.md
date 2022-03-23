@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Название: TestGuru
+Веб-приложение позволяющие пользователям регистрировать и размещать свои тесты для их прохождения другими пользователями.
+Пользователи могут проходить тесты и публиковать результаты в социальных сетях.
+В проекте использовались:
+Ruby: 3.0.0
+Ruby On Rails: 7.0.2.3
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Сущности приложения:
+Пользователи: 1) Создатели тестов 2) Отвечающие
+Тесты
+Вопросы
+Ответы
+Результаты
