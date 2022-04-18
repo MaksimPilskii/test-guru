@@ -5,7 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+TestUser.create!(user_id: 1, test_id: 1)
+TestUser.create!(user_id: 1, test_id: 2)
+TestUser.create!(user_id: 1, test_id: 3)
+TestUser.create!(user_id: 2, test_id: 1)
+TestUser.create!(user_id: 2, test_id: 2)
+TestUser.create!(user_id: 2, test_id: 3)
 User.create!(username: "Maksim")
 User.create!(username: "Ivan")
 Category.create!(title: "Frontend")
