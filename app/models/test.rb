@@ -2,6 +2,7 @@ class Test < ApplicationRecord
   belongs_to :category
   has_many :question
   belongs_to :user
+  has_many :user
   has_many :user, through: :testuser
 
   def self.sorting_an_array(category)
