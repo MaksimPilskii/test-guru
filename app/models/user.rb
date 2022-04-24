@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :test
+  has_many :test, through :testuser
+  
   def test_level(level)
     Test.joins('JOIN test_users ON test_users.test_id = tests.id ')
     .where(test_users: {user_id: id})
