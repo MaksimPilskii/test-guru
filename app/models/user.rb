@@ -1,7 +1,13 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
+  has_many :authors_tests, dependent: :destroy, class_name: 'Test'
+  has_many :test_users, dependent: :destroy
+  has_many :tests, through: :test_users, class_name: 'TestUser'
+
   def test_level(level)
-    Test.joins('JOIN test_users ON test_users.test_id = tests.id ')
-    .where(test_users: {user_id: id})
-    .where(level: level)
+    Test.joins(:test_users)
+        .where(test_users: { user_id: id })
+        .where(level: level)
   end
 end
