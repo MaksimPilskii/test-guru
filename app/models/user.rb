@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :test_users, dependent: :destroy
   has_many :tests, through: :test_users, class_name: 'TestUser'
 
+  validates :username, :email, presence: true
+
   def test_level(level)
     Test.joins(:test_users)
         .where(test_users: { user_id: id })
