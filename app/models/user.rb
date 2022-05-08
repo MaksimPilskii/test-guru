@@ -8,8 +8,6 @@ class User < ApplicationRecord
   validates :username, :email, presence: true
 
   def test_level(level)
-    Test.joins(:test_users)
-        .where(test_users: { user_id: id })
-        .where(level: level)
+    Test.where(level: level)
   end
 end
