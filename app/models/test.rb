@@ -23,8 +23,6 @@ class Test < ApplicationRecord
   scope :tests_difficult, -> { where(level: 5..Float::INFINITY).order(created_at: :desc) }
   default_scope { order(title: :asc) }
 
-  private
-
   def self.array_categories(title_category)
     sorting_an_array(title_category).pluck(:title)
   end
