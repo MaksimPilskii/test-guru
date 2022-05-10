@@ -8,8 +8,8 @@ class Answer < ApplicationRecord
 
   scope :correct, -> { where(correct: true) }
 
-  private 
-  
+  private
+
   def count_answers_on_the_question
     errors.add(:answers, 'The number of responses should be from 1 to 4') if question.answers.count >= 4
   end
