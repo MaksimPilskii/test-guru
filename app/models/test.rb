@@ -16,13 +16,13 @@ class Test < ApplicationRecord
   validates :level, numericality: { greater_than: -1 }
 
   scope :category, lambda { |title_category|
-                              joins(:category)
-                                .where(categories: { title: title_category })
-                                .order(title: :desc)
-                            }
-  scope :easy, -> { where(level: 0..1) }
-  scope :average, -> { where(level: 2..4) }
-  scope :difficult, -> { where(level: 5..Float::INFINITY) }
+                     joins(:category)
+                       .where(categories: { title: title_category })
+                       .order(title: :desc)
+                   }
+  scope :easy_tasks, -> { where(level: 0..1) }
+  scope :average_tasks, -> { where(level: 2..4) }
+  scope :difficult_tasks, -> { where(level: 5..Float::INFINITY) }
 
   def self.array_categories(title_category)
     sorting_an_array(title_category).pluck(:title)
