@@ -6,18 +6,17 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    render inline: '<p> Вопросы от всех тестов: <%=Question.all.map(&:body).join("<br>").html_safe %> </p>'
-  end
-
   def show
-    render inline: '<p> Вопрос: <%= @question.body %>'
+    @question = Question.find(params[:id])
   end
 
-  def new; end
+  def new
+    @question = @test.questions.new
+  end
 
   def create
     @question = @test.questions.new(question_params)
+    
     if @question.save
       redirect_to @question
     else
@@ -25,10 +24,25 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def destroy
-    @question.destroy
+  def edit
+    @question = Question.find(params[:id])
+  end
 
-    render plain: 'Вопрос был удален'
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+
+    @question.destroy
+    redirect_to tests_path
   end
 
   private

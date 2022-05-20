@@ -1,0 +1,16 @@
+<p>
+	<strong>Title:</strong>
+	<%= @question.body %>
+</p>
+
+<p>
+	<strong>Level:</strong>
+	<%= @question.test_id %>
+</p>
+
+<%= link_to 'Edit', edit_question_path(@question) %>
+<%= link_to 'Back', tests_path %>
+<%= link_to "Delete", [@question], data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %>

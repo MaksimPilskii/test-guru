@@ -1,0 +1,19 @@
+<p>
+	<strong>Title:</strong>
+	<%= @test.title %>
+</p>
+
+<p>
+	<strong>Level:</strong>
+	<%= @test.level %>
+</p>
+<p>
+  <strong>Questions:</strong><br>
+  <% @questions.each do |question| %>
+  <%=  question %><br>
+  <% end %>
+  
+</p> 
+<%= link_to 'New questions', new_test_question_path(params[:id]) %>
+<%= link_to 'Edit', edit_test_path(@test) %>
+<%= link_to 'Back', tests_path %>
