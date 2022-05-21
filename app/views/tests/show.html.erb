@@ -12,7 +12,6 @@
   <% @questions.each do |question| %>
   <%=  question %><br>
   <% end %>
-  
 </p> 
 <%= link_to 'New questions', new_test_question_path(params[:id]) %>
 <%= link_to 'Edit', edit_test_path(@test) %>
