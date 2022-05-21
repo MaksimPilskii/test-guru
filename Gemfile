@@ -72,7 +72,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem "faker", "~> 2.21"
-
-gem "hotwire-rails", "~> 0.1.3"
