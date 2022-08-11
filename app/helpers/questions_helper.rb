@@ -2,6 +2,6 @@
 
 module QuestionsHelper
   def current_year
-    Time.current
+    Time.current.year
   end
 end
