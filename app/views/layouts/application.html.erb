@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
   <body>
+    <% if logged_in? %>
+      <p class="nav user"><%= link_to "Welcome, #{current_user.username} Guru", tests_path %></p>
+    <% end %>
+      <p class="navigation_menu"> <%= link_to "Registration", signup_path %></p>
+      <p class="navigation_menu"> <%= link_to "Log in", login_path %></p>
+      <p class="navigation_menu"> <%= link_to "Log out", logout_path, method: :delete %></p>
     <%= yield %>
+    
     <footer>
         <%= render 'shared/footer' %>
     </footer>
